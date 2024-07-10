@@ -3,15 +3,44 @@
 })
 
 @slot('body')
-
-<form method="POST" action="{{ route('auth.login.store') }}"
+<main class="max-w-md mx-auto">
+    <h1>Create an account</h1>
+    <form method="POST" action="{{ route('auth.register.store') }}"
     class="w-sm bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 flex flex-col gap-4">
 
     {{ csrfField() }}
 
+    <label for="fullName" class="border-b border-gray-200 pb-2 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#909090"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-at">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+        <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28" />
+        </svg>
+        <input type="text" name="fullName" id="fullName" value="{{ old('fullName') || '' }}" placeholder="Martin Todoz"
+        class="focus:outline-none text-neutral-800">
+        @inputError('fullName')
+        {{ $messages.join(', ') }}
+        @end
+    </label>
     <label for="email" class="border-b border-gray-200 pb-2 flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-        stroke="#909090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#909090"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-at">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+        <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28" />
+        </svg>
+        <input type="email" name="email" id="email" value="{{ old('email') || '' }}" placeholder="martin@todoz.app"
+        class="focus:outline-none text-neutral-800">
+        @inputError('email')
+        {{ $messages.join(', ') }}
+        @end
+    </label>
+    <label for="email" class="border-b border-gray-200 pb-2 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#909090"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
         class="icon icon-tabler icons-tabler-outline icon-tabler-at">
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
@@ -43,4 +72,10 @@
 
     <button type="submit"
         class="bg-blue-500 hover:bg-blue-700 text-white font-ligth py-2 px-4 rounded-full">Connexion</button>
-</form>
+    </form>
+</main>
+
+@endslot
+
+@end
+    
