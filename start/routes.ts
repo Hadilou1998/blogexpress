@@ -25,4 +25,4 @@ router.group(() => {
 
     // Logout
     router.get('/logout', [LogoutController, 'getOut']).as('logout.getOut')
-})
+}).as('auth')
