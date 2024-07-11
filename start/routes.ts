@@ -7,9 +7,9 @@
 |
 */
 
-import LoginController from '#controllers/login_controller'
-import LogoutController from '#controllers/logout_controller'
-import RegisterController from '#controllers/register_controller'
+import LoginController from '#controllers/auth/login_controller'
+import LogoutController from '#controllers/auth/logout_controller'
+import RegisterController from '#controllers/auth/register_controller'
 import router from '@adonisjs/core/services/router'
 
 router.on('/').render('pages/home')
@@ -24,5 +24,5 @@ router.group(() => {
     router.post('/login', [LoginController, 'store']).as('login.store')
 
     // Logout
-    router.get('/logout', [LogoutController, 'getOut']).as('logout.getOut')
+    router.post('/logout', [LogoutController, 'getOut']).as('logout.getOut')
 }).as('auth')
