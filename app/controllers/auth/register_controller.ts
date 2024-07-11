@@ -33,5 +33,4 @@ export default class RegisterController {
     await auth.use('web').login(user)
     return response.redirect().toRoute('home')
   }
-
 }

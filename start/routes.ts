@@ -12,7 +12,7 @@ import LogoutController from '#controllers/auth/logout_controller'
 import RegisterController from '#controllers/auth/register_controller'
 import router from '@adonisjs/core/services/router'
 
-router.on('/').render('pages/home')
+router.on('/').render('pages/home').as('home')
 
 router.group(() => {
     // Registration
